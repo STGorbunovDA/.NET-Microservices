@@ -1,7 +1,7 @@
 ﻿using PlatformService.Models;
 using System.Collections.Generic;
 
-namespace PlatformService.Data
+namespace PlatformService.Data.Repository
 {
     public interface IPlatformRepo
     {

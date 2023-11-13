@@ -1,6 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
 using PlatformService.Data;
+using PlatformService.Data.Repository;
 
 var builder = WebApplication.CreateBuilder(args);
 

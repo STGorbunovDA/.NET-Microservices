@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace PlatformService.Data
+namespace PlatformService.Data.Repository
 {
     public class PlatformRepo : IPlatformRepo
     {
@@ -31,7 +31,7 @@ namespace PlatformService.Data
 
         public bool SaveChanges()
         {
-            return (_context.SaveChanges() >= 0);
+            return _context.SaveChanges() >= 0;
         }
     }
 }
