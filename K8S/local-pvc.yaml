@@ -1,0 +1,15 @@
+#  Определяет Persistent Volume Claim (PVC) для использования с ресурсом хранения данных в Kubernetes. 
+# В данном случае PVC с именем "mssql-claim" создается для работы с базой данных MS SQL.
+# 
+# 
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: mssql-claim
+spec:
+  accessModes: #  Определяет режимы доступа к PVC. В данном случае установлен режим "ReadWriteMany", который позволяет одновременный доступ на чтение и запись к PVC со стороны нескольких подов.
+    - ReadWriteMany
+  resources: # Определяет необходимое пространство для хранения, указываемое в запросах PVC. В данном случае запрашивается 200 мегабайт хранилища.
+    requests:
+      storage: 200Mi
+ 
