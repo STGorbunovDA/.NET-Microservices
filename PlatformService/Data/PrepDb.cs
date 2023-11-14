@@ -5,25 +5,39 @@ namespace PlatformService.Data
 {
     public static class PrepDb
     {
-        public static void PrepPopulation(IApplicationBuilder app)
+        /*
+            * Метод PrepPopulation используется для подготовки данных популяции (наполнения) базы данных приложения.
+            * Принимает параметры: app - экземпляр IApplicationBuilder для доступа к сервисам приложения,
+            * isProd - флаг, указывающий, находится ли приложение в продакшн-окружении.
+        */
+        public static void PrepPopulation(IApplicationBuilder app, bool isProd)
         {
-            using var serviceScope = app.ApplicationServices.CreateScope();
-            SeedData(serviceScope.ServiceProvider.GetService<AppDbContext>());
+            // Создание области использования сервисов приложения
+            using (var serviceScope = app.ApplicationServices.CreateScope())
+            {
+                // Получение экземпляра AppDbContext из сервисов приложения (DI)
+                var dbContext = serviceScope.ServiceProvider.GetService<AppDbContext>();
+
+                // Вызов метода SeedData для заполнения данных в базе данных
+                // Передаем экземпляр dbContext и флаг isProd в метод SeedData
+                SeedData(dbContext, isProd);
+            }
         }
 
-        private static void SeedData(AppDbContext context)
+        private static void SeedData(AppDbContext context, bool isProd)
         {
-
-            Console.WriteLine("--> Attempting to apply migrations...");
-            try
+            if (isProd)
             {
-                context.Database.Migrate();
+                Console.WriteLine("--> Attempting to apply migrations...");
+                try
+                {
+                    context.Database.Migrate();
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine($"--> Could not run migrations: {ex.Message}");
+                }
             }
-            catch (Exception ex)
-            {
-                Console.WriteLine($"--> Could not run migrations: {ex.Message}");
-            }
-
 
             if (!context.Platforms.Any())
             {
