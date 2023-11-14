@@ -1,0 +1,18 @@
+# Данный манифест создает развертывание Kubernetes с именем "platforms-depl", которое будет создавать и поддерживать 1 реплику подов в кластере. Развертывание будет управлять подами, которые имеют метку "app: platformservice". 
+apiVersion: apps/v1 #версия api.
+kind: Deployment #развёртывание.
+metadata:
+  name: platforms-depl #название развёртывания.
+spec:
+  replicas: 1 #Количество экземпляров реплик.
+  selector:
+    matchLabels:
+      app: platformservice #Селектор работает в сочитании с template(шаблон). Он создаёт шаблон.
+  template:
+    metadata:
+      labels:
+        app: platformservice #Определение модуля контейнера который собираемся использовать. Определяем какой контейнер развёртываем.
+    spec: #Определение контейнера который собираемся запустить.
+      containers: #Массив контейнеров.
+        - name: platformservice #- символ называется элемент массива containers.
+          image: proxtreeme/platformservice:latest
