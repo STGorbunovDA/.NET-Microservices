@@ -1,0 +1,36 @@
+syntax = "proto3"; // ”казывает на использование синтаксиса proto3 дл€ определени€ протокола.
+
+// ”казывает пространство имен C#, в котором будут сгенерированы классы соответствующие этому протоколу.
+option csharp_namespace = "PlatformService"; 
+
+// ќпредел€ет сервис GrpcPlatform, в котором есть метод GetAllPlatforms с входным параметром 
+// GetAllRequest и возвращаемым значением PlatformResponse. ќн будет использоватьс€ 
+// дл€ получени€ информации о платформах.
+service GrpcPlatform {
+    rpc GetAllPlatforms (GetAllRequest) returns (PlatformResponse);
+}
+
+//ќпредел€ет сообщение GetAllRequest, которое в данном случае €вл€етс€ простым 
+//контейнером без полей. ќно будет использоватьс€ в качестве входного параметра дл€ метода GetAllPlatforms.
+message GetAllRequest {}
+
+// ќпредел€ет сообщение GrpcPlatformModel, которое представл€ет информацию о платформе. 
+// ќно содержит три пол€: platformId (целое число), name (строка), publisher (строка). 
+// Ќомера (1, 2, 3) указывают на пор€док полей в сообщении.
+message GrpcPlatformModel{
+    int32 platformId = 1;
+    string name = 2;
+    string publisher = 3;
+}
+
+// ќпредел€ет сообщение PlatformResponse, которое представл€ет ответ на запрос GetAllPlatforms. 
+// ќно содержит поле platform, которое представл€ет список (repeated) платформ (GrpcPlatformModel).
+message PlatformResponse {
+    repeated GrpcPlatformModel platform = 1;
+}
+
+
+// “аким образом, этот код определ€ет протокол взаимодействи€ дл€ получени€ информации 
+// о платформах с использованием gRPC. —ерверна€ сторона должна реализовать метод GetAllPlatforms 
+// дл€ обработки запросов, а клиентска€ сторона может использовать этот протокол дл€ отправки 
+// запросов и получени€ ответов о платформах
