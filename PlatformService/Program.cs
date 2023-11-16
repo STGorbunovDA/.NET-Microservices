@@ -3,6 +3,7 @@ using Microsoft.OpenApi.Models;
 using PlatformService.AsyncDataServices;
 using PlatformService.Data;
 using PlatformService.Data.Repository;
+using PlatformService.SyncDataServices.Grpc;
 using PlatformService.SyncDataServices.Http;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -24,8 +25,8 @@ else
 builder.Services.AddScoped<IPlatformRepo, PlatformRepo>();
 builder.Services.AddHttpClient<ICommandDataClient, HttpCommandDataClient>();
 builder.Services.AddSingleton<IMessageBusClient, MessageBusClient>();
-
 builder.Services.AddControllers();
+builder.Services.AddGrpc();
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(c =>
@@ -50,6 +51,12 @@ if (app.Environment.IsDevelopment())
 app.UseAuthorization();
 
 app.MapControllers();
+app.MapGrpcService<GrpcPlatformService>();
+
+app.MapGet("/protos/platforms.proto", async context =>
+{
+    await context.Response.WriteAsync(File.ReadAllText("Protos/platforms.proto"));
+});
 
 PrepDb.PrepPopulation(app, app.Environment.IsProduction());
 
