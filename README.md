@@ -3,3 +3,5 @@
 ## По шагам
 
 1. Создаём PlatformService
+2. Создаём Docker
+
