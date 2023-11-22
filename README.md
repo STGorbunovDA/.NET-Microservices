@@ -12,4 +12,4 @@
 8. Создаём SQL Server in Kubernetes
 9. Создаём Multi-Model Service в CommandsService
 10. Внедряем RabbitMQ Messaging
-
+11. Asynchronous Events c помощью RabbitMQ
