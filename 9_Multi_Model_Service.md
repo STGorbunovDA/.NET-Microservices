@@ -7,6 +7,7 @@
             * Это модели данных с использованием атрибутов [*Key*] и [*Required*], которые служат для описания свойств и отношений между платформами и командами в рамках приложения "***CommandsService***". Они помогают определить структуру данных, требующихся для хранения информации о платформах и соответствующих им командах, а также задают требования к обязательности заполнения определенных полей.
         * смотри коммит: [Add models to the Command Service](https://github.com/STGorbunovDA/.NET-Microservices/commit/b276ca44dd07ea7ccffb2ef177f1ff03a4bae60a)
     2. Визуализируем представление моделей к БД:
+    
          ![Multi-Model_Service_29](https://github.com/STGorbunovDA/.NET-Microservices/blob/dev/img/29.png)
     3.  Создаём контекст БД, путём добавления файла *AppDbContext.cs* в папку *Data*
         * Смотри коммит: [Add Database Context](https://github.com/STGorbunovDA/.NET-Microservices/commit/1ba620d84408f406cbfca43f57f65bdc5ad0b698)
@@ -23,6 +24,7 @@
         * *CommandRepo.cs*
             * нужны для выполнения операций создания и получения команд, получения списка всех платформ, проверки наличия платформы по её идентификатору, а также сохранения изменений в контексте базы данных. Класс CommandRepo взаимодействует с контекстом базы данных AppDbContext, который передается через конструктор.
     5. Визуализируем что должно получится:
+
             ![Multi-Model_Service_30](https://github.com/STGorbunovDA/.NET-Microservices/blob/dev/img/30.png)
     6. В файл **Program.cs** регистрируем наш сервис для доступа к БД, сам контекст и AutoMapper:
         * *builder.Services.AddScoped<ICommandRepo, CommandRepo>();*
@@ -53,9 +55,11 @@
         *  через *Swagger* или *Insomnia* или *Postman* протестируй методы контроллера **PlatformsController.cs** и **CommandsController.cs:**
             * Имплементируй файл [.NET-Microservices.postman\_collection](https://github.com/STGorbunovDA/.NET-Microservices/tree/dev/postman) в любую из вышеперечисленных программ.
             * Обрати внимание на папку **Local Dev/ Commands Service,** тебе необходимо заменить порт в маршрутах во всех файлах на соответствующий твоему приложению. http://localhost:**5029**/api/c/platforms/ - обрати внимание на консоль твоего приложения после запуска или в файле конфигурации **launchSettings.json** в *profiles* => "*applicationUrl*": "*http://localhost:5029*"
+
                 ![Multi-Model_Service_31](https://github.com/STGorbunovDA/.NET-Microservices/blob/dev/img/31.png)
             * Выполни ***CreateCommandForPlatform***
             * Результат в консоли должен вывести сообщение:
+
                 ![Multi-Model_Service_32](https://github.com/STGorbunovDA/.NET-Microservices/blob/dev/img/32.png)
     
         
