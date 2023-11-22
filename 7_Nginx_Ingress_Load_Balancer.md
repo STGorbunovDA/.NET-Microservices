@@ -9,7 +9,8 @@
 1. Убеждаемся что мы в папке **K8S**:
     * в терминале вводим скопированную ссылку.
     * должны получить: 
-        ![SynchronousMessaging_22](https://github.com/STGorbunovDA/.NET-Microservices/blob/dev/img/22.png)
+
+    ![SynchronousMessaging_22](https://github.com/STGorbunovDA/.NET-Microservices/blob/dev/img/22.png)
     * Дождаться развёртывания контейнера и для того что бы увидеть в консоли все развёртывания необходимо обратится к команде:
         * *kubectl get namespace*
     * и далее путём сопоставления названия обратится к этому пространству имён:*
@@ -21,6 +22,7 @@
         *  файл маршрутизации который контроллер nginx будет использовать для определения маршрута к нашим сервисам
         * смотри коммит: [Add to configaration Ingress](https://github.com/STGorbunovDA/.NET-Microservices/commit/1f1c2aec4aca089266fd7d99d27f9b5b125920fb)
         * Необходимо в файле C:\Windows\System32\drivers\etc\hosts прописать маршрут:
+
         ![SynchronousMessaging_23](https://github.com/STGorbunovDA/.NET-Microservices/blob/dev/img/23.png)
         * Запускаем контейнер:
             * *kubectl apply -f ingress-srv.yaml* 
@@ -31,4 +33,5 @@
         * Обрати внимание на папку ***K8S / Platform Service(Nginx)***:
             * Выполни GetPlatforms
 * Должно получится: 
+
      ![SynchronousMessaging_24](https://github.com/STGorbunovDA/.NET-Microservices/blob/dev/img/24.png)

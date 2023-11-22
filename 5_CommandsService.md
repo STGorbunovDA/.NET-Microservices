@@ -29,6 +29,7 @@
     * она указывает на текущую директорию как контекст сборки, это означает, что все файлы и папки, находящиеся в текущей директории, будут доступны 
     в процессе сборки ***Docker***-образа.
     * Убедись что библиотека *obj\Debug\net7.0\ ***CommandsService.dll*** соответствует названию в файле ***Docker***:
+
          ![CommandsService_17](https://github.com/STGorbunovDA/.NET-Microservices/blob/dev/img/17.png)
 11. Запускаем ***Docker***-контейнер командой:
     * *docker run -p 8080:80 proxtreeme/commandservice*

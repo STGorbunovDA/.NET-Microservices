@@ -21,10 +21,12 @@
 5. Запускаем команду:
     * *kubectl get services*
     * должно получится:
-        ![SQL_Server_in_Kubernetes_26](https://github.com/STGorbunovDA/.NET-Microservices/blob/dev/img/26.png)
+
+    ![SQL_Server_in_Kubernetes_26](https://github.com/STGorbunovDA/.NET-Microservices/blob/dev/img/26.png)
     * *kubectl get pods*
     * должно получится:
-        ![SQL_Server_in_Kubernetes_27](https://github.com/STGorbunovDA/.NET-Microservices/blob/dev/img/27.png)
+
+    ![SQL_Server_in_Kubernetes_27](https://github.com/STGorbunovDA/.NET-Microservices/blob/dev/img/27.png)
     * Ждем когда **Kubernetes** скачает все необходимые пакеты и развернётся кластер ***MSSQL***
 6.  После того как контейнер развернётся необходимо зайти в *MSSQL Server Management Studio* ввести:
     * login: ***sa***
@@ -33,7 +35,8 @@
 7. Проверим работоспособность ***Kubernetes*** и сохранения БД:
     * в *MSSQL Server Management Studio* создадим тестовую БД.
     * в программе докер удали контейнер развёртывания *mssql-plat-depl:*
-        ![SQL_Server_in_Kubernetes_28](https://github.com/STGorbunovDA/.NET-Microservices/blob/dev/img/28.png)
+
+    ![SQL_Server_in_Kubernetes_28](https://github.com/STGorbunovDA/.NET-Microservices/blob/dev/img/28.png)
 
     * ждём восстановления контейнера.
     * заходим в *MSSQL Server Management Studio* и убеждаемся что тестовая БД присутствует.
@@ -80,6 +83,7 @@
         * после выполнения запроса CreatePlatform в БД(mssqldb) должна создаться новая платформа.
         * заходим в *MSSQL Server Management Studio* и убеждаемся в этом.
 10. Визуализируем что должно получится, выделено красным цветом:
+
      ![SQL_Server_in_Kubernetes_25](https://github.com/STGorbunovDA/.NET-Microservices/blob/dev/img/25.png)
          
 

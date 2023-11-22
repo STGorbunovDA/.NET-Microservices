@@ -9,13 +9,17 @@
      [Creating Kubernetes Manifests](https://github.com/STGorbunovDA/.NET-Microservices/commit/ae50b1dab63d93da2613c3213fdfb4539c0f91f2) и
      [Add ClusterIP in platforms-depl.yaml](https://github.com/STGorbunovDA/.NET-Microservices/commit/bd8db5ed301d3c3873c69ca1d6931d53ec7c3464)
      * Не забудь поменять своё зареганное доменное имя на **https://hub.docker.com** что бы скачать контейнер**:
+
         ![Kubernetes_6](https://github.com/STGorbunovDA/.NET-Microservices/blob/dev/img/6.png)
+
     * Визуализируем, что должно получится:
+
          ![Kubernetes_7](https://github.com/STGorbunovDA/.NET-Microservices/blob/dev/img/7.png)
             
     * Проверяем командой версию ***Kubernetes*:**
         * *kubectl version*
         * должно получится:
+
          ![Kubernetes_8](https://github.com/STGorbunovDA/.NET-Microservices/blob/dev/img/8.png)
 4. Переходим в папку **K8S** и используем команду: 
     * *kubectl apply -f platforms-depl.yaml*
@@ -27,11 +31,14 @@
         * команда используется для получения списка всех подов (поды), которые текущий пользователь имеет разрешение видеть в текущем контексте ***Kubernetes***
 6. Удаляем предыдущие не запущенные контейнеры
 7. Открываем программу ***Docker*** должно отобразится два файла:
+
     ![Kubernetes_9](https://github.com/STGorbunovDA/.NET-Microservices/blob/dev/img/9.png)
     * Первый это кластер работающего контейнера
     * Второй сам работающий контейнер:
+
         ![Kubernetes_10](https://github.com/STGorbunovDA/.NET-Microservices/blob/dev/img/10.png)
         * Если удалить контейнер или кластер то ***Kubernetes*** его автоматически перезапустит без потери данных. Для того что ***Kubernetes*** создавал больше дубликатов контейнеров в файле ***platforms-depl.yaml*** необходимо указать больше реплик (например когда наш сервис перегружен входящим трафиком):
+
             ![Kubernetes_11](https://github.com/STGorbunovDA/.NET-Microservices/blob/dev/img/11.png)
         * и заново пересобрать наш манифест командой:
             * *kubectl apply -f platforms-depl.yaml*
@@ -44,7 +51,8 @@
         * смотри коммит: 
         [Creating Kubernetes Manifests](https://github.com/STGorbunovDA/.NET-Microservices/commit/ae50b1dab63d93da2613c3213fdfb4539c0f91f2)
 8. Визуализируем, что должно получится:
-        ![Kubernetes_4](https://github.com/STGorbunovDA/.NET-Microservices/blob/dev/img/4.png)
+
+    ![Kubernetes_4](https://github.com/STGorbunovDA/.NET-Microservices/blob/dev/img/4.png)
 9. Переходим в папку **K8S** и используем команду:
     * *kubectl apply -f platforms-np-srv.yaml*
     * команда создаёт службу ***Kubernetes*** с именем "***platformnpservice-srv***", типом ***NodePort***, прослушивающая порт 80 и направляющая трафик на порт 80 подов с меткой "***app***: ***platformservice***
@@ -52,6 +60,7 @@
         * *kubectl get services*
         * команда выводит список всех служб **Kubernetes**, которые были созданы в кластере.
         * должно получится: 
+
         ![Kubernetes_12](https://github.com/STGorbunovDA/.NET-Microservices/blob/dev/img/12.png)
         * что бы полностью удалить сервис ***Kubernetes*** необходимо воспользоваться командой:
             * *kubectl delete service ***platformnpservice-srv****
@@ -60,6 +69,8 @@
 10. Далее необходимо проверить через *Swagger* или *Insomnia* или *Postman* методы контроллера **PlatformsController.cs** через созданный ***Kubernetes***-кластер:
     * Имплементируй файл [.NET-Microservices.postman\_collection](https://github.com/STGorbunovDA/.NET-Microservices/tree/dev/postman) в любую из вышеперечисленных программ.
         * Обрати внимание на папку ***K8S / Platform Service(Node Port)*** и поменяй порт маршрута внутри используемой программы, на соответствующий созданному сервису *NodePort*:
+
             ![Kubernetes_13](https://github.com/STGorbunovDA/.NET-Microservices/blob/dev/img/13.png)
+            
             ![Kubernetes_14](https://github.com/STGorbunovDA/.NET-Microservices/blob/dev/img/14.png)
             * выполни запрос *GetPlatforms*

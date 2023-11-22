@@ -24,6 +24,7 @@
     * Данный манифест создает развертывание **Kubernetes** с именем "***commands-depl***", которое будет создавать и поддерживать 1 реплику подов в кластере и сервис ***ClusterIP** для общения между сервисами.* Развертывание будет управлять подами, которые имеют метку "***app***: ***commandservice***
     * смотри коммит: [Add commands-depl.yaml for Kubernetes](https://github.com/STGorbunovDA/.NET-Microservices/commit/b2774347da0667be051f4bd5b3a408f1d8037ede)
     * не забудь поменять своё зареганное доменное имя на **hub.docker.com** что бы скачать контейнер**:**
+
         ![SynchronousMessaging_18](https://github.com/STGorbunovDA/.NET-Microservices/blob/dev/img/18.png)
     * Запускаем кластер:
         * *kubectl apply -f commands-depl.yaml* 
@@ -34,15 +35,20 @@
         * *kubectl get pods*
             * команда используется для получения списка всех подов (поды), которые текущий пользователь имеет разрешение видеть в текущем контексте ***Kubernetes***.
 3. И если два кластера и два *podsa* созданы:
-        ![SynchronousMessaging_19](https://github.com/STGorbunovDA/.NET-Microservices/blob/dev/img/19.png)
+
+    ![SynchronousMessaging_19](https://github.com/STGorbunovDA/.NET-Microservices/blob/dev/img/19.png)
 4. Далее необходимо проверить через *Swagger* или *Insomnia* или *Postman* методы контроллера **PlatformsController.cs** через созданный ***Kubernetes***-кластер и ***ClusterIP*** между сервисами:
     * Имплементируй файл [.NET-Microservices.postman\_collection](https://github.com/STGorbunovDA/.NET-Microservices/tree/dev/postman) в любую из вышеперечисленных программ.
         * Обрати внимание на папку ***K8S / Platform Service(Node Port)*** и поменяй порт маршрута внутри используемой программы, на соответствующий созданному сервису *NodePort*:
+
             ![SynchronousMessaging_13](https://github.com/STGorbunovDA/.NET-Microservices/blob/dev/img/13.png)
         * Выполни ***CreatePlatform***
 5. Должно получится в ***Kubernetes-***кластере** *platforms-depl*:
-         ![SynchronousMessaging_20](https://github.com/STGorbunovDA/.NET-Microservices/blob/dev/img/20.png)
+
+    ![SynchronousMessaging_20](https://github.com/STGorbunovDA/.NET-Microservices/blob/dev/img/20.png)
 6. Должно получится в ***Kubernetes-***кластере ***commands-depl***:
-        ![SynchronousMessaging_21](https://github.com/STGorbunovDA/.NET-Microservices/blob/dev/img/21.png)
+
+    ![SynchronousMessaging_21](https://github.com/STGorbunovDA/.NET-Microservices/blob/dev/img/21.png)
 7. Визуализируем, что должно получится:
-        ![SynchronousMessaging_15](https://github.com/STGorbunovDA/.NET-Microservices/blob/dev/img/15.png)
+
+    ![SynchronousMessaging_15](https://github.com/STGorbunovDA/.NET-Microservices/blob/dev/img/15.png)

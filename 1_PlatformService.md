@@ -1,6 +1,5 @@
 # Создаём PlatformService
 
-
 1. Cоздаём решение ***sln***
     * *dotnet new sln*
     * создаться решение *.NET-Microservices.sln*
@@ -67,6 +66,7 @@
     * смотри коммит: 
      [Creating a controller and transferring files to the Repository folder](https://github.com/STGorbunovDA/.NET-Microservices/commit/5d7a5182142ed6d8fee434957ea17577b2fd9acf)
 18. Общая картинка сервиса ***PlatformService*** и проделанных действий:
+
     ![PlatformService_1-1](https://github.com/STGorbunovDA/.NET-Microservices/blob/dev/img/1-1.png)
 19. Далее необходимо проверить через *Swagger* или *Insomnia* или *Postman* методы контроллера *PlatformsController.cs:*
     * Далее необходимо проверить через *Swagger* или *Insomnia* или *Postman* методы контроллера ***PlatformsController*.*cs*:**
