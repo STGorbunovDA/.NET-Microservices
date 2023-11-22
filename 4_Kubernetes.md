@@ -60,4 +60,6 @@
 10. Далее необходимо проверить через *Swagger* или *Insomnia* или *Postman* методы контроллера **PlatformsController.cs** через созданный ***Kubernetes***-кластер:
     * Имплементируй файл [.NET-Microservices.postman\_collection](https://github.com/STGorbunovDA/.NET-Microservices/tree/dev/postman) в любую из вышеперечисленных программ.
         * Обрати внимание на папку ***K8S / Platform Service(Node Port)*** и поменяй порт маршрута внутри используемой программы, на соответствующий созданному сервису *NodePort*:
+            ![Kubernetes_13](https://github.com/STGorbunovDA/.NET-Microservices/blob/dev/img/13.png)
+            ![Kubernetes_14](https://github.com/STGorbunovDA/.NET-Microservices/blob/dev/img/14.png)
             * выполни запрос *GetPlatforms*
