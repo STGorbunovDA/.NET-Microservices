@@ -10,4 +10,5 @@
 6. Создаём Synchronous Messaging между сервисами PlatformService и CommandsService
 7. Внедряем шлюз *Nginx Ingress Load balancer*
 8. Создаём SQL Server in Kubernetes
+9. Создаём Multi-Model Service в CommandsService
 
