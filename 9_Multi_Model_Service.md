@@ -7,9 +7,9 @@
             * Это модели данных с использованием атрибутов [*Key*] и [*Required*], которые служат для описания свойств и отношений между платформами и командами в рамках приложения "***CommandsService***". Они помогают определить структуру данных, требующихся для хранения информации о платформах и соответствующих им командах, а также задают требования к обязательности заполнения определенных полей.
         * смотри коммит: [Add models to the Command Service](https://github.com/STGorbunovDA/.NET-Microservices/commit/b276ca44dd07ea7ccffb2ef177f1ff03a4bae60a)
     2. Визуализируем представление моделей к БД:
-    
+
          ![Multi-Model_Service_29](https://github.com/STGorbunovDA/.NET-Microservices/blob/dev/img/29.png)
-    3.  Создаём контекст БД, путём добавления файла *AppDbContext.cs* в папку *Data*
+    3. Создаём контекст БД, путём добавления файла *AppDbContext.cs* в папку *Data*
         * Смотри коммит: [Add Database Context](https://github.com/STGorbunovDA/.NET-Microservices/commit/1ba620d84408f406cbfca43f57f65bdc5ad0b698)
         * Переопределяем метод *OnModelCreating* его базовую реализацию в классе *DbContext*. В данном конкретном случае, он используется для настройки отношений (связей) между таблицами/сущностями в базе данных, с помощью объекта *ModelBuilder*
         * В данном коде, метод *OnModelCreating* настраивает связь "один-ко-многим" (*one-to-many*) между сущностями *Platform* и *Command*. Это выполняется с помощью следующих вызовов методов:

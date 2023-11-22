@@ -11,4 +11,5 @@
 7. Внедряем шлюз *Nginx Ingress Load balancer*
 8. Создаём SQL Server in Kubernetes
 9. Создаём Multi-Model Service в CommandsService
+10. Внедряем RabbitMQ Messaging
 
