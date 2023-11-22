@@ -7,5 +7,6 @@
 3. Что такое Kubernetes
 4. Kubernetes для PlatformService
 5. Создаём CommandsService
-6. 
+6. Создаём Synchronous Messaging между сервисами PlatformService и CommandsService
+7. Внедряем шлюз *Nginx Ingress Load balancer*
 
