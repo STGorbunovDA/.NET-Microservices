@@ -7,4 +7,5 @@
 3. Что такое Kubernetes
 4. Kubernetes для PlatformService
 5. Создаём CommandsService
+6. 
 

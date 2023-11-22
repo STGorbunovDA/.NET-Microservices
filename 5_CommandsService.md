@@ -22,7 +22,7 @@
         в *profiles* => "*applicationUrl*": "*http://localhost:5029*"
 10. Создаём **Docker**-образ:
     * *docker build -t proxtreeme/ commandservice .* 
-    * смотри коммит: [Add Dockerfile for CommandService](https://github.com/STGorbunovDA/.NET-Microservices/commit/e3fd13d58d4c694640584043729b2c3e11253bcf)\
+    * смотри коммит: [Add Dockerfile for CommandService](https://github.com/STGorbunovDA/.NET-Microservices/commit/e3fd13d58d4c694640584043729b2c3e11253bcf)
     * Исправь выделенный тег ***proxtreeme***, необходимо указать своё зареганное доменное имя на **hub.docker.com**
     * команду необходимо писать строчными буквами
     * не забывай про «.» в конце команды
